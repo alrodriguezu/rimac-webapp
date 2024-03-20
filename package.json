@@ -29,7 +29,7 @@
     "redux-persist": "^6.0.0",
     "redux-store": "^0.0.0",
     "sass": "^1.72.0",
-    "yup": "^0.28.5"
+    "yup": "0.28.5"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",

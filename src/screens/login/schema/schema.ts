@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { NUMBER_REGEX } from '../../../core/constants/regex.constants';
 
 const TEXT_MIN_CHARACTER_ERROR = 'El celular debe tener mínimo 9 caracteres.';
 const TEXT_FIELD_REQUIRED_ERROR = 'El campo es requerido.';

@@ -1,11 +1,12 @@
 
+import userApi from 'core/services/user';
 import { TSliceExtraReducer } from '../../store';
 import { SLICE_NAMESPACE } from '../constants';
 import { IUserState } from '../shared';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const loadUserAction = createAsyncThunk(
-    `${SLICE_NAMESPACE}/getUser`, () => null,
+    `${SLICE_NAMESPACE}/getUser`, () => userApi.login(),
 );
 
 export const loadUserReducer: TSliceExtraReducer<IUserState> = builder =>
@@ -15,9 +16,10 @@ export const loadUserReducer: TSliceExtraReducer<IUserState> = builder =>
         })
         .addCase(loadUserAction.rejected, (state) => {
             state.loading = false;
-            state.name = '';
         })
         .addCase(loadUserAction.fulfilled, (state, action) => {
             state.loading = false;
             state.name = action.payload.name;
+            state.lastName = action.payload.lastName;
+            state.birthDay = action.payload.birthDay;
         });

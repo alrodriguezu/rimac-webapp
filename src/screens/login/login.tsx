@@ -2,7 +2,13 @@ import Footer from '../../components/footer/footer';
 import { Header } from 'components/header';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { formSchema } from './schema';
+import { formSchema } from './schema/schema';
+import { useNavigate } from 'react-router-dom';
+import { plansPath } from 'core/constants/routes.constants';
+import { loadUserAction } from 'core/store/auth';
+import { useAppDispatch } from 'core/store/store';
+import { defaultUser } from '../../core/constants/user.constants';
+import { useState } from 'react';
 import './login.scss';
 
 interface IUserForm {
@@ -14,20 +20,36 @@ interface IUserForm {
 }
 
 const Login = () => {
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+  const [noUser, setNoUser] = useState<boolean>(false);
+
   const {
     register,
     handleSubmit,
-    watch,
     resetField,
-    formState: { errors, isValid },
+    formState: { errors },
   } = useForm<IUserForm>({
     mode: 'onChange',
     resolver: yupResolver(formSchema),
   });
-  const documentType = watch('documentType');
-  const documentNumber = watch('documentNumber');
 
-  const onSubmit = async (values) => {};
+  const onSubmit = async (values) => {
+    if (formValidation(values)) {
+      navigate(plansPath);
+      dispatch(loadUserAction());
+    } else {
+      setNoUser(true);
+    }
+  };
+
+  const formValidation = (values: IUserForm) => {
+    return (
+      defaultUser.documentNumer === values.documentNumber &&
+      defaultUser.documentoType === values.documentType &&
+      defaultUser.phone === values.phone
+    );
+  };
 
   const onchangeDocumentType = () => {
     resetField('documentNumber');
@@ -58,10 +80,9 @@ const Login = () => {
                   className="form-select login__container__form__content__select"
                   {...register('documentType')}
                   onChange={() => onchangeDocumentType()}
+                  defaultValue={1}
                 >
-                  <option value="1" selected>
-                    DNI
-                  </option>
+                  <option value="1">DNI</option>
                   <option value="2">RUC</option>
                 </select>
                 <div className="form-floating login__container__form__content--not-space">
@@ -98,6 +119,7 @@ const Login = () => {
             {errors.phone?.message && (
               <div className="invalid-feedbacks">{errors.phone?.message}</div>
             )}
+            {noUser && <div className="invalid-feedbacks">Credenciales incorrectas</div>}
             <div className="login__container__form__checks">
               <div className="form-check login__container__form__checks__check">
                 <input

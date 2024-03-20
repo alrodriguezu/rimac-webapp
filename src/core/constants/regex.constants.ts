@@ -1,1 +1,1 @@
-const NUMBER_REGEX = new RegExp(/^[0-9]*$/);
+export const NUMBER_REGEX = new RegExp(/^[0-9]*$/);

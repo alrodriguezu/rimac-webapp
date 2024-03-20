@@ -2,10 +2,7 @@ import { ReactNode, Suspense, lazy, useRef } from 'react';
 import FallbackView from './fallback-view/fallback-view';
 
 export const FallBackViewSpinner = <FallbackView />;
-export const FallbackFullScreen = (
-  // <LoadingScreen isLoading bgTrasparent variant="primary" />
-  <div>hola</div>
-);
+export const FallbackFullScreen = <div>Cargando</div>;
 
 /**
  * @param dynamicComponent import dynamic component

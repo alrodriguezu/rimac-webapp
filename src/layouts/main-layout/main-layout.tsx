@@ -10,18 +10,10 @@ export interface IMainLayoutProps {
 }
 
 const MainLayout: React.FC<IMainLayoutProps> = ({ children, maxWidthEnabled = false }) => {
-  const { name, lastName } = useSelector((state: IState) => state.user);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
   return (
     <div className="main-layout">
       <header className="main-layout__header">
-        <Header
-          onButtonClick={() => setSidebarOpen(!sidebarOpen)}
-          buttonClicked={sidebarOpen}
-          myAccountPath="/mi-cuenta"
-          userFullName={`${name} ${lastName}`}
-        />
+        <Header />
       </header>
       <div className="main-layout__container">
         <div id="main-layout" className="main-layout__content-wrapper">
