@@ -1,25 +1,41 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "target": "ES2021",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
+    "types": ["vite/client"],
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/svg.d.ts"
+    ],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
+    "outDir": "dist",
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "declaration": false,
+    "baseUrl": "src",
+    "removeComments": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "strictNullChecks": false,
+    "allowJs": true,
+    "strict": false,
+    "noImplicitAny": false,
     "noUnusedParameters": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src"],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

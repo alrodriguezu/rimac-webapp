@@ -1,0 +1,1 @@
+const NUMBER_REGEX = new RegExp(/^[0-9]*$/);

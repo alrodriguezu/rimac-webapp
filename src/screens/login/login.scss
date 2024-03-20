@@ -1,0 +1,167 @@
+.login {
+    background-color: white;
+    position: relative;
+    padding: 7rem 0 6rem;
+    display: grid;
+    place-items: center;
+    min-height: calc(100vh - 106px);
+    background-color: #f8f9ff;
+    overflow: hidden;
+    &__header {
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 11;
+    }
+    &__container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0 32px;
+        max-width: 1184px;
+        z-index: 10;
+        &__form {
+            width: 100%;
+            max-width: 352px;
+            margin-left: 128px;
+            > .invalid-feedbacks {
+                color: #dc3545;
+                font-size: 12px;
+                margin-top: -12px;
+            }
+            &__tag {
+                display: inline-block;
+                padding: 4px 8px;
+                border-radius: 4px;
+                font-family: var(--br-sonoma-bold), sans-serif;
+                font-size: 14px;
+                line-height: 16px;
+                letter-spacing: 0.4px;
+                background: linear-gradient(90deg, #00f4e2 0%, #00ff7f 100%);
+                color: #03050f;
+                font-weight: 700;
+            }
+            &__description {
+                margin: 19px auto 24px auto;
+                &__title {
+                    line-height: 40px;
+                    font-size: 32px;
+                    font-weight: 700;
+                    color: #03050f;
+                }
+                &__subtitle {
+                    line-height: 20px;
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: #03050f;
+                }
+            }
+            &__content {
+                height: 56px;
+                margin-top: 16px;
+                margin-bottom: 16px;
+
+                &__select {
+                    height: 56px;
+                    border: 1px solid #5e6488;
+                    box-shadow: none;
+                }
+                &__select:focus {
+                    border: 2px solid #0a051e;
+                    box-shadow: none;
+                }
+                &__input {
+                    height: 56px !important;
+                    min-height: 56px !important;
+                    border: 1px solid #5e6488;
+
+                    &.is-invalid {
+                        background-image: none;
+                    }
+                }
+                &__input:focus {
+                    border: 2px solid #0a051e;
+                    box-shadow: none;
+                }
+                input[type="number"]::-webkit-inner-spin-button,
+                input[type="number"]::-webkit-outer-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+                &__input[type="number"] {
+                    appearance: none;
+                    -moz-appearance: textfield;
+                }
+
+                &--not-space {
+                    height: 56px;
+                    width: 35% !important;
+                }
+            }
+            &__checks {
+                margin-top: 12px;
+                &__check {
+                    margin-bottom: 16px;
+                    > .form-check-input:checked {
+                        background-color: #0a051e;
+                        border-color: #0a051e;
+                    }
+                    > label {
+                        font-size: 12px;
+                        font-weight: 400;
+                        line-height: 20px;
+                    }
+                }
+            }
+
+            &__extra {
+                font-size: 12px;
+                font-weight: 600;
+                color: #0a051e;
+                text-decoration: underline;
+                margin-bottom: 16px;
+                padding: 0;
+            }
+            &__action {
+                cursor: pointer;
+                position: relative;
+                width: -moz-fit-content;
+                width: fit-content;
+                font-size: 20px;
+                line-height: 24px;
+                padding: 20px 40px;
+                border-radius: 40px;
+                text-align: center;
+                white-space: nowrap;
+                letter-spacing: 0.4px;
+                background-color: #03050f;
+                color: #ffffff;
+                overflow: hidden;
+                border-width: 2px;
+                border-color: #03050f;
+                border-style: solid;
+                z-index: 1;
+            }
+        }
+        &--left {
+            position: absolute;
+            max-width: 100%;
+            height: auto;
+            left: 0;
+            bottom: 0;
+            user-select: none;
+        }
+        &--right {
+            position: absolute;
+            max-width: 100%;
+            height: auto;
+            right: 0;
+            top: 0;
+            user-select: none;
+        }
+    }
+}

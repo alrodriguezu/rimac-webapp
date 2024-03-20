@@ -1,0 +1,44 @@
+.header {
+  background-color: inherit;
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 32px;
+    max-width: 1184px;
+    z-index: 10;
+    &__logo {
+      display: flex;
+      align-items: center;
+    }
+
+    &__message {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+
+      &__text {
+        font-size: 12px;
+        font-weight: 600;
+        color: #03050f;
+      }
+
+      &__number {
+        font-size: 18px;
+        font-weight: 700;
+        color: #03050f;
+        text-decoration: none;
+        &__icon {
+          width: 20px;
+        }
+      }
+      &__number:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

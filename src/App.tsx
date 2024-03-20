@@ -1,35 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/es/integration/react';
+import { persistor, store } from './core/store';
+import AppRoutes from './screens/app.routes';
+import MainLayout from 'layouts/main-layout/main-layout';
+import './app.scss';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => (
+  <div className="app">
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <BrowserRouter>
+          {/* <MainLayout maxWidthEnabled> */}
+          <AppRoutes />
+          {/* </MainLayout> */}
+        </BrowserRouter>
+      </PersistGate>
+    </Provider>
+  </div>
+);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App
+export default App;
