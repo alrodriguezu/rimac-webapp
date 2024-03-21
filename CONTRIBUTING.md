@@ -20,7 +20,7 @@
 
 ## Demo
 
-- Ambiente test: https://65fb8a9af2e04f50e11dadca--rimac-webapp.netlify.app
+- Ambiente test: https://master--rimac-webapp.netlify.app/
 
 ## Tecnologías
 
