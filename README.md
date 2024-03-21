@@ -1,5 +1,5 @@
 <p align="center">
- <img src="./public/rimac.svg" width="80" />
+ <img src="./public/images/rimac.svg" width="80" />
 </p>
 <h1 align="center">
  Proyecto Rimac
