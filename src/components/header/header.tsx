@@ -6,7 +6,7 @@ const Header = () => (
   <div className="header">
     <div className="header__container">
       <div className="header__container__logo">
-        <img src="./logo-header.png" alt="Rimac" />
+        <img src="./images/logo-header.png" alt="Rimac" />
       </div>
       <div className="header__container__message">
         <button className="header__container__message__text btn" type="button">
@@ -16,7 +16,7 @@ const Header = () => (
           className="header__container__message__number"
           href={`tel:${contactData.NUMBER_CONTACT}`}
         >
-          <img className="header__container__message__number__icon" src="./phone.svg"></img>{' '}
+          <img className="header__container__message__number__icon" src="./images/phone.svg"></img>{' '}
           {contactData.NUMBER_CONTACT}
         </a>
       </div>

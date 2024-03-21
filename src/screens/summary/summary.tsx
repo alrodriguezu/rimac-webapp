@@ -17,7 +17,7 @@ const Plans = () => {
   return (
     <>
       <Header />
-      <Stepper active={2} image="./line-off.svg" />
+      <Stepper active={2} image="./images/line-off.svg" />
       <div className="summary">
         <div className="summary__container">
           <div className="summary__container__content">
@@ -29,7 +29,7 @@ const Plans = () => {
               <div className="summary__container__content__back__icon">
                 <img
                   className="summary__container__content__back__icon__image"
-                  src="./icon-back.svg"
+                  src="./images/icon-back.svg"
                 />
               </div>
               Volver
@@ -44,7 +44,7 @@ const Plans = () => {
                 Precios calculados para:
               </div>
               <div className="summary__container__content__card__profile">
-                <img src="./ic_family.png" />
+                <img src="./images/ic_family.png" />
                 <div className="summary__container__content__card__profile__name">{name}</div>
               </div>
               <div className="summary__container__content__card__line" />

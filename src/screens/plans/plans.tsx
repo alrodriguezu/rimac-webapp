@@ -45,7 +45,7 @@ const Plans = () => {
   return (
     <>
       <Header />
-      <Stepper active={1} image="./line-on.svg" />
+      <Stepper active={1} image="./images/line-on.svg" />
       <div className="plans">
         <div className="plans__container">
           <div className="plans__container__content">
@@ -53,7 +53,7 @@ const Plans = () => {
               <div className="plans__container__content__back__icon">
                 <img
                   className="plans__container__content__back__icon__image"
-                  src="./icon-back.svg"
+                  src="./images/icon-back.svg"
                 />
               </div>
               Volver

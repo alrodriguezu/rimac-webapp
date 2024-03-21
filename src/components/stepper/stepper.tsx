@@ -19,7 +19,7 @@ const Stepper: React.FC<IStepperProps> = ({ active, image }) => {
               <div className="plans__container__content__back__icon">
                 <img
                   className="plans__container__content__back__icon__image"
-                  src="./icon-back.svg"
+                  src="./images/icon-back.svg"
                 />
               </div>
             </button>
@@ -30,7 +30,7 @@ const Stepper: React.FC<IStepperProps> = ({ active, image }) => {
           <img className="stepper__container__step__pos__image" src={image} />
           <img
             className="stepper__container__step__pos__image--mobile"
-            src="./atoms_stepper_progress.svg"
+            src="./images/atoms_stepper_progress.svg"
           />
         </div>
         <div className="stepper__container__step">

@@ -70,7 +70,7 @@ const Login = () => {
       </header>
       <section className="login">
         <div className="login__container">
-          <img className="login__container__image" src="./background.png" />
+          <img className="login__container__image" src="./images/background.png" />
           <form className="login__container__form" onSubmit={handleSubmit(onSubmit)}>
             <div className="login__container__form__header">
               <div className="login__container__form__header__titles">
@@ -83,7 +83,7 @@ const Login = () => {
               </div>
               <img
                 className="login__container__form__header__image-mobile"
-                src="./background.png"
+                src="./images/background.png"
               />
             </div>
             <div className="login__container__form__line" />
@@ -177,15 +177,15 @@ const Login = () => {
             </button>
           </form>
         </div>
-        <img className="login__container--left" src="./background-blur-left.png"></img>
-        <img className="login__container--right" src="./background-blur-right.png"></img>
+        <img className="login__container--left" src="./images/background-blur-left.png"></img>
+        <img className="login__container--right" src="./images/background-blur-right.png"></img>
         <img
           className="login__container--left--mobile"
-          src="./background-blur-left-mobile.png"
+          src="./images/background-blur-left-mobile.png"
         ></img>
         <img
           className="login__container--right--mobile"
-          src="./background-blur-right-mobile.png"
+          src="./images/background-blur-right-mobile.png"
         ></img>
       </section>
       <Footer />

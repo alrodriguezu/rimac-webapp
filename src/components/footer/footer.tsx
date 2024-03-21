@@ -5,7 +5,7 @@ const Footer = () => {
     <div className="footer">
       <div className="footer__container">
         <div className="footer__container__left">
-          <img src="./logo-footer.png" alt="Logo Insuma" />
+          <img src="./images/logo-footer.png" alt="Logo Insuma" />
         </div>
         <div className="footer__container__line" />
         <div className="footer__container__right">
