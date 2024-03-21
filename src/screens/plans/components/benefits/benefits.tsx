@@ -50,9 +50,9 @@ export const Benefits: FC<BenefitsProps> = ({ items, onSelected }) => {
             />
             <div className="benefits__content__check ">
               {item.ad ? (
-                <img src="src/assets/radio-check-on.svg" alt="Check Box" />
+                <img src="./radio-check-on.svg" alt="Check Box" />
               ) : (
-                <img src="src/assets/radio-check-off.svg" alt="Check Box" />
+                <img src="./radio-check-off.svg" alt="Check Box" />
               )}
             </div>
             <img src={item.image} />

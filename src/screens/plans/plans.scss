@@ -10,6 +10,9 @@
         z-index: 10;
         &__content {
             padding: 0 6rem;
+            @media (max-width: 768px) {
+                padding: 0;
+            }
             &__back {
                 text-decoration-color: #4f4fff;
                 align-items: center;

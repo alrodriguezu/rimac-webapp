@@ -3,7 +3,9 @@
     align-items: center;
     gap: 12px;
     cursor: initial;
-
+    @media (max-width: 768px) {
+        padding-left: 0;
+    }
     &__content {
         cursor: pointer;
         border-radius: 24px;
