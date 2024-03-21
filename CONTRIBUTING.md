@@ -142,7 +142,7 @@ El stack tecnológico que tiene el proyecto es el siguiente, sin embargo por deb
 ejemplo:
 
 ```console
-$ git checkout -b "feature/mb2b-1293_checkout-payment-types"
+$ git checkout -b "feature/1293_checkout-payment-types"
 ```
 
 ### Commits
