@@ -14,3 +14,11 @@ export const benefitsItems: BenefitItem[] = [
         ad: false,
     },
 ]
+
+export const additionalPlanContent = [
+    { image: "src/assets/ic-home-light.png", tip: false },
+    { image: "src/assets/ic-hospital-light.png", tip: true },
+    { image: "src/assets/ic-home-light.png", tip: false }
+]
+
+export const benefitType = 'Para alguien más';

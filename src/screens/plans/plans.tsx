@@ -1,52 +1,51 @@
 import { Header } from 'components/header';
 import { Benefits } from 'screens/plans/components/benefits';
 import { benefitsItems } from 'core/constants/plans.constans';
-import { useAppSelector } from 'core/store/store';
+import { useAppDispatch, useAppSelector } from 'core/store/store';
 import userApi from 'core/services/user';
 import BenefitDetail from './components/benefit-price/benefit-price';
 import { useState } from 'react';
 import { IPlan } from 'core/model/interfaces/plans.interface';
 import { useNavigate } from 'react-router-dom';
+import { clearData, updateData } from 'core/store/auth';
+import { summaryPath } from 'core/constants/routes.constants';
+import { StorageService } from 'core/services/storage';
+import Stepper from 'components/stepper/stepper';
 import './plans.scss';
 
 const Plans = () => {
   const navigate = useNavigate();
-  const { name } = useAppSelector((state) => state.user);
-  const [plans, setPlans] = useState<Array<IPlan>>();
+  const dispatch = useAppDispatch();
+  const { name, age } = useAppSelector((state) => state.user);
+  const [plans, setPlans] = useState<Array<IPlan>>([]);
   const [benefitSelected, setBenefitSelected] = useState<string>();
 
   const selectedBenefit = async (select: string) => {
     const data = await userApi.plans();
-    setPlans(data);
+    const updatePlans = data.filter((p) => Number(p.age) >= age);
+    setPlans(updatePlans);
     setBenefitSelected(select);
   };
 
-  const selectedPlan = () => {
-    //reducers
+  const selectedPlan = (selected: IPlan) => {
+    dispatch(
+      updateData({
+        ...selected,
+      })
+    );
+    navigate(summaryPath);
   };
 
   const onBack = () => {
+    dispatch(clearData());
+    StorageService.clear();
     navigate(-1);
   };
 
   return (
     <>
       <Header />
-      <div className="stepperHorizontal">
-        <div className="container">
-          <div className="step-1">
-            <div className="step-1__left">
-              <div className="icon">1</div>
-              <div className="text">Planes y coberturas</div>
-            </div>
-            <img></img>
-          </div>
-          <div className="step-2">
-            <div>Resumen</div>
-            <img></img>
-          </div>
-        </div>
-      </div>
+      <Stepper active={1} image="src/assets/line-on.svg" />
       <div className="plans">
         <div className="plans__container">
           <div className="plans__container__content">

@@ -22,4 +22,5 @@ export const loadUserReducer: TSliceExtraReducer<IUserState> = builder =>
             state.name = action.payload.name;
             state.lastName = action.payload.lastName;
             state.birthDay = action.payload.birthDay;
+            state.age = action.payload.age;
         });

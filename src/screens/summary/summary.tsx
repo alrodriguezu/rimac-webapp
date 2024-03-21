@@ -1,11 +1,14 @@
 import { Header } from 'components/header';
 import { useAppSelector } from 'core/store/store';
 import { useNavigate } from 'react-router-dom';
+import { authDataKeys } from 'core/constants/auth.constants';
+import Stepper from 'components/stepper/stepper';
 import './summary.scss';
 
 const Plans = () => {
   const navigate = useNavigate();
-  const { name } = useAppSelector((state) => state.user);
+  const { name, plan } = useAppSelector((state) => state.user);
+  const user = JSON.parse(localStorage.getItem(authDataKeys.KEY_USER));
 
   const onBack = () => {
     navigate(-1);
@@ -14,21 +17,7 @@ const Plans = () => {
   return (
     <>
       <Header />
-      <div className="stepperHorizontal">
-        <div className="container">
-          <div className="step-1">
-            <div className="step-1__left">
-              <div className="icon">1</div>
-              <div className="text">Planes y coberturas</div>
-            </div>
-            <img></img>
-          </div>
-          <div className="step-2">
-            <div>Resumen</div>
-            <img></img>
-          </div>
-        </div>
-      </div>
+      <Stepper active={2} image="src/assets/line-off.svg" />
       <div className="summary">
         <div className="summary__container">
           <div className="summary__container__content">
@@ -56,16 +45,18 @@ const Plans = () => {
               </div>
               <div className="summary__container__content__card__profile">
                 <img src="src/assets/ic_family.png" />
-                <div className="summary__container__content__card__name">{name}</div>
+                <div className="summary__container__content__card__profile__name">{name}</div>
               </div>
               <div className="summary__container__content__card__line" />
               <div className="summary__container__content__card__label">Responsable de pago</div>
-              <div className="summary__container__content__card__value">DNI: 30216147</div>
-              <div className="summary__container__content__card__value">Celular: 5130216147</div>
-              <div className="summary__container__content__card__label">Plan elegido</div>
-              <div className="summary__container__content__card__value">Plan en Casa y Clínica</div>
               <div className="summary__container__content__card__value">
-                Costo del Plan: $99 al mes
+                DNI: {user?.documentNumber}
+              </div>
+              <div className="summary__container__content__card__value">Celular: {user?.phone}</div>
+              <div className="summary__container__content__card__label">Plan elegido</div>
+              <div className="summary__container__content__card__value">{plan.name}</div>
+              <div className="summary__container__content__card__value">
+                Costo del Plan: ${plan.price} al mes
               </div>
             </div>
           </div>

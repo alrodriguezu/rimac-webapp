@@ -8,7 +8,10 @@ import { plansPath } from 'core/constants/routes.constants';
 import { loadUserAction } from 'core/store/auth';
 import { useAppDispatch } from 'core/store/store';
 import { defaultUser } from '../../core/constants/user.constants';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { authDataKeys } from 'core/constants/auth.constants';
+import useAuth from 'core/hooks/me/use-auth';
+import { StorageService } from 'core/services/storage';
 import './login.scss';
 
 interface IUserForm {
@@ -23,6 +26,7 @@ const Login = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const [noUser, setNoUser] = useState<boolean>(false);
+  const { name } = useAuth();
 
   const {
     register,
@@ -34,14 +38,18 @@ const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = async (values) => {
-    if (formValidation(values)) {
-      navigate(plansPath);
+  const onSubmit = async (user) => {
+    if (formValidation(user)) {
       dispatch(loadUserAction());
+      await StorageService.set(authDataKeys.KEY_USER, JSON.stringify(user));
     } else {
       setNoUser(true);
     }
   };
+
+  useEffect(() => {
+    name && navigate(plansPath);
+  }, [name]);
 
   const formValidation = (values: IUserForm) => {
     return (
@@ -62,9 +70,23 @@ const Login = () => {
       </header>
       <section className="login">
         <div className="login__container">
-          <img src="src/assets/background.png" />
+          <img className="login__container__image" src="src/assets/background.png" />
           <form className="login__container__form" onSubmit={handleSubmit(onSubmit)}>
-            <div className="login__container__form__tag">Seguro Salud Flexible</div>
+            <div className="login__container__form__header">
+              <div className="login__container__form__header__titles">
+                <div className="login__container__form__header__titles__tag">
+                  Seguro Salud Flexible
+                </div>
+                <h1 className="login__container__form__description__title login__container__form__description__title--mobile">
+                  Creado para ti y tu familia
+                </h1>
+              </div>
+              <img
+                className="login__container__form__header__image-mobile"
+                src="src/assets/background.png"
+              />
+            </div>
+            <div className="login__container__form__line" />
             <div className="login__container__form__description">
               <h1 className="login__container__form__description__title">
                 Creado para ti y tu familia
@@ -157,6 +179,14 @@ const Login = () => {
         </div>
         <img className="login__container--left" src="src/assets/background-blur-left.png"></img>
         <img className="login__container--right" src="src/assets/background-blur-right.png"></img>
+        <img
+          className="login__container--left--mobile"
+          src="src/assets/background-blur-left-mobile.png"
+        ></img>
+        <img
+          className="login__container--right--mobile"
+          src="src/assets/background-blur-right-mobile.png"
+        ></img>
       </section>
       <Footer />
     </>

@@ -1,9 +1,7 @@
 export class StorageService {
-  static set = (name: string, value: any, persist: boolean = false): Promise<void> =>
-    Promise.resolve().then(() => {
-      if (persist) localStorage.setItem(name, JSON.stringify(value));
-      else sessionStorage.setItem(name, JSON.stringify(value));
-    });
+  static set = (name: string, value: any): Promise<void> =>
+    Promise.resolve().then(() => sessionStorage.setItem(name, JSON.stringify(value)));
+
 
   static get = (name: string): Promise<any> =>
     Promise.resolve().then(() => {

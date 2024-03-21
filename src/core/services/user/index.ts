@@ -1,11 +1,11 @@
 import { IUserState } from 'core/store/auth/shared';
 import { httpsUnauthenticated } from '../utils/https';
 import { IPlan } from 'core/model/interfaces/plans.interface';
-import { mapToPlanDetail } from './user.mappers';
+import { mapToPlanDetail, mapToUser } from './user.mappers';
 
 export default class userApi {
     static async login(): Promise<IUserState> {
-        return httpsUnauthenticated.get(`/user.json`).then(response => response.data)
+        return httpsUnauthenticated.get(`/user.json`).then(response => mapToUser(response.data))
     }
 
     static async plans(): Promise<Array<IPlan>> {
