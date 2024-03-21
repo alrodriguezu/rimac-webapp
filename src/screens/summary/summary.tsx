@@ -9,7 +9,7 @@ const Plans = () => {
   const navigate = useNavigate();
   const { name, plan } = useAppSelector((state) => state.user);
   const user = JSON.parse(localStorage.getItem(authDataKeys.KEY_USER));
-
+  console.log(user);
   const onBack = () => {
     navigate(-1);
   };

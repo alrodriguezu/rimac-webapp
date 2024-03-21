@@ -38,10 +38,10 @@ const Login = () => {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = async (user) => {
+  const onSubmit = (user) => {
     if (formValidation(user)) {
       dispatch(loadUserAction());
-      await StorageService.set(authDataKeys.KEY_USER, JSON.stringify(user));
+      localStorage.setItem(authDataKeys.KEY_USER, JSON.stringify(user));
     } else {
       setNoUser(true);
     }
