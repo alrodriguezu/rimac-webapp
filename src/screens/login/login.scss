@@ -169,8 +169,13 @@
                         background-color: #0a051e;
                         border-color: #0a051e;
                     }
+                    > input {
+                        margin-top: auto;
+                        margin-bottom: auto;
+                    }
                     @media (max-width: 768px) {
                         display: flex;
+                        align-items: center;
                     }
                     > label {
                         font-size: 12px;

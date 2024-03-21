@@ -1,5 +1,8 @@
 .plans {
     padding: 40px 0 80px;
+    @media (max-width: 768px) {
+        padding: 0;
+    }
     &__container {
         position: relative;
         width: 100%;
@@ -20,6 +23,9 @@
                 color: #4f4fff;
                 font-weight: 700;
                 gap: 10px;
+                @media (max-width: 768px) {
+                    display: none;
+                }
                 &__icon {
                     background-color: #fff;
                     border-radius: 9999px;
@@ -40,12 +46,21 @@
             &__description {
                 margin-top: 56px;
                 text-align: center;
+                letter-spacing: 0.6px;
+                @media (max-width: 768px) {
+                    font-size: 28px;
+                    text-align: left;
+                    letter-spacing: 0.2px;
+                }
                 &__asign {
                     color: #141938;
                     letter-spacing: -0.6px;
                     line-height: 48px;
                     font-weight: 700;
                     font-size: 40px;
+                    @media (max-width: 768px) {
+                        font-size: 28px;
+                    }
                 }
                 &__option {
                     color: #141938;
